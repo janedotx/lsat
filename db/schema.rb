@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120040450) do
+ActiveRecord::Schema.define(:version => 20121120100000) do
 
   create_table "lsat_sections", :force => true do |t|
     t.binary   "questions"
@@ -46,9 +46,11 @@ ActiveRecord::Schema.define(:version => 20121120040450) do
     t.string "screen_name"
     t.binary "diagnostic_scores"
     t.string "salt"
-    t.string "hashed_password"
     t.string "current_test_type"
     t.string "current_section_type"
+    t.string "password"
+    t.string "password_digest"
+    t.string "email"
   end
 
 end
