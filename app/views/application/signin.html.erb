@@ -1,0 +1,8 @@
+<% if session[:user_id] %>
+  you logged in!
+<% else %>
+  you failed!
+  <br/>
+  go back home!
+  <%= link_to root %>
+<% end %>

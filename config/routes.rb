@@ -5,9 +5,14 @@ Lsat::Application.routes.draw do
   root :to => "application#index"
   
   match 'take_test' => 'lsat_test#take_test'
+  match 'sign_out' => 'application#sign_out'
   match 'create_user' => 'application#create_user'
   match 'dogpile' => 'application#create_user'
   match 'signin' => 'application#signin'
+  match 'home' => 'application#home'
+  match 'grade_question' => 'lsat_test#grade_question'
+  match 'next_question' => 'lsat_test#next_question'
+  match 'finish_test' => 'lsat_test#finish_test'
 #  match ''
 
   # Sample of regular route:

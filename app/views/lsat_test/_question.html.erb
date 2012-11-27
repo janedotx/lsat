@@ -1,0 +1,16 @@
+<% if @question.section_type %>
+  The type of question you are taking: <%= @question.section_type.split("_").map { |x| x.capitalize }.join(" ") %>
+<% end %>
+<br/>
+<form action="<%= grade_question_path %>" method="post">
+<%= @question.question_text %>
+<br>
+<% ['I', 'II', 'III', 'IV', 'V'].each_with_index do |numeral, index| %>
+  <br>
+  <input type="radio" name="answer" value=<%="#{index}"%>>
+  <%= "#{numeral}. " %>
+  <%= @question.unmarshaled_answers[index] %>
+<% end %>
+<input type="hidden" name="question_id" value="<%= @question.id %>">
+<input type="submit" value="Submit">
+</form>

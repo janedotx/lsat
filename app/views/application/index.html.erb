@@ -1,6 +1,7 @@
-hello!
+<%= flash[:notice] %>
 
-take this diagnostic test so we can tell you how doomed you are: <%= link_to 'DOOM', :action => 'take_test', :controller => "lsat_test" %>
+hello!
+<br/>
 
 Are you new?
 <%= link_to "Create an account", '/create_user_form.html' %>
@@ -9,4 +10,10 @@ Are you new?
 If you're not new, why not sign in?
 
 <br/>
-<%= link_to "Sign in", :action => 'signin', :controller => 'application' %>
+<form action="/signin" method="post">
+  <br/>
+  Screen name: <input type="text" name="screen_name"><br>
+  Password: <input type="password" name="password"><br>
+  <input type="submit" value="Submit">
+</form>
+

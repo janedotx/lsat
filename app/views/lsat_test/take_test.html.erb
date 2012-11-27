@@ -1,1 +1,14 @@
-take the test
+<% if params[:test_id].to_i == -1 %>
+Take a diagnostic test to see where you're at, before we give you a training schedule.
+
+Here's the first question:
+
+<% else %>
+
+Next question:
+
+<% end %>
+
+<br/>
+<br/>
+<%= render "question" %>

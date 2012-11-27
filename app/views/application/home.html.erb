@@ -1,0 +1,12 @@
+<%= session[:user_id] %>
+<%= session.inspect %>
+link to diagnostic test:
+<%= link_to "this is the test", take_test_path(:test_id => -1) %>
+
+<br>
+link to schedule
+
+<br>
+
+<%= link_to "Sign out", sign_out_path %>
+
