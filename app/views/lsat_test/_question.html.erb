@@ -1,6 +1,5 @@
-<% if @question.section_type %>
-  The type of question you are taking: <%= @question.section_type.split("_").map { |x| x.capitalize }.join(" ") %>
-<% end %>
+<!-- this is so dangerous -->
+The type of question you are taking: <%= @question.question_group.lsat_section.section_type.split("_").map { |x| x.capitalize }.join(" ") %>
 <br/>
 <form action="<%= grade_question_path %>" method="post">
 <%= @question.question_text %>

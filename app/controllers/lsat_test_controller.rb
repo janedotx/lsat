@@ -21,7 +21,6 @@ class LsatTestController < ApplicationController
       puts session[:user_id]
       test = LsatTest.find(cookies[:test_id])
       @question = Question.find(test.all_questions[cookies[:current_test_question].to_i])
-      @question = Question.find(:first)
     end
   end
 
