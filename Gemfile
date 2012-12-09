@@ -37,3 +37,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'ruby-debug'
+
+#gem 'libv8' #-3.11.8.4
+#gem 'therubyracer' #-3.11.8.4

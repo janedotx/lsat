@@ -4,8 +4,72 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+# one: {}
 # column: value
 #
-two: {}
+# two: {}
 #  column: value
+
+one:
+  id: 7
+  question_text: Which French existentialist has the best blog?
+  answers: \x04\b[\nI\"\x17Simone de Beauvoir\x06:\x06ETI\"\vSartre\x06;\x00TI\"\nCamus\x06;\x00TI\"\x10Kierkegaard\x06;\x00TI\"\x0EMeursault\x06;\x00T
+  correct_answer: 1
+  section_type: logical_reasoning
+  lsat_section_id: 5
+
+two:
+  id: 8
+  question_text: How many red balloons are there?
+  answers: \x04\b[\nI\"\x061\x06:\x06ETI\"\x062\x06;\x00TI\"\x063\x06;\x00TI\"\x064\x06;\x00TI\"\a99\x06;\x00T
+  correct_answer: 4
+  section_type: logical_reasoning
+  lsat_section_id: 5
+
+three:
+  id: 9
+  question_text: How many dogs are in the doghouse?
+  answers: \x04\b[\nI\"\x061\x06:\x06ETI\"\x062\x06;\x00TI\"\x063\x06;\x00TI\"\x064\x06;\x00TI\"\x065\x06;\x00T
+  correct_answer: 1
+  section_type: reading_comprehension
+  lsat_section_id: 6
+
+four:
+  id: 10
+  question_text: Who is the most French?
+  answers: \x04\b[\nI\"\x17Simone de Beauvoir\x06:\x06ETI\"\vSartre\x06;\x00TI\"\nCamus\x06;\x00TI\"\x10Kierkegaard\x06;\x00TI\"\x0EMeursault\x06;\x00T
+  correct_answer: 1
+  section_type: logical_reasoning
+  lsat_section_id: 7
+
+five:
+  id: 11
+  question_text: How many unicorns are there?
+  answers: \x04\b[\nI\"\x061\x06:\x06ETI\"\x062\x06;\x00TI\"\x063\x06;\x00TI\"\x064\x06;\x00TI\"\a99\x06;\x00T
+  correct_answer: 4
+  section_type: logical_reasoning
+  lsat_section_id: 7
+
+six:
+  id: 12
+  question_text: How many eggs can turn on a lightbulb?
+  answers: \x04\b[\nI\"\x061\x06:\x06ETI\"\x062\x06;\x00TI\"\x063\x06;\x00TI\"\x064\x06;\x00TI\"\x065\x06;\x00T
+  correct_answer: 1
+  section_type: reading_comprehension
+  lsat_section_id: 6
+
+seven:
+  id: 13
+  question_text: How many dots are on a polka dot dress?
+  answers: \x04\b[\nI\"\x061\x06:\x06ETI\"\x062\x06;\x00TI\"\x063\x06;\x00TI\"\x064\x06;\x00TI\"\x065\x06;\x00T
+  correct_answer: 1
+  section_type: analytical_reasoning
+  lsat_section_id: 9
+
+eight:
+  id: 14
+  question_text: How many horns does a rhinoceros have?
+  answers: \x04\b[\nI\"\x061\x06:\x06ETI\"\x062\x06;\x00TI\"\x063\x06;\x00TI\"\x064\x06;\x00TI\"\x065\x06;\x00T
+  correct_answer: 1
+  section_type: analytical_reasoning
+  lsat_section_id: 9

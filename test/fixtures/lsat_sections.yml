@@ -4,8 +4,32 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+# one: {}
 # column: value
 #
-two: {}
+# two: {}
 #  column: value
+
+diagnostic_logical_reasoning_one:
+  id: 5
+  section_type: logical_reasoning
+  #questions: \x04\b[\ai\fi\r
+  lsat_test_id: 2
+
+diagnostic_reading_comprehension:
+  id: 6
+  section_type: reading_comprehension
+  #questions: \x04\b[\ai\x0Ei\x0F
+  lsat_test_id: 2
+
+diagnostic_logical_reasoning_two:
+  id: 7
+  section_type: logical_reasoning
+  #questions: \x04\b[\ai\fi\r
+  lsat_test_id: 2
+
+diagnostic_analytical_reasoning:
+  id: 8
+  section_type: logical_reasoning
+  #questions: \x04\b[\ai\x12i\x13
+  lsat_test_id: 2

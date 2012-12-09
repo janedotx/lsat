@@ -1,6 +1,7 @@
 class LsatSection < ActiveRecord::Base
   belongs_to :lsat_test
   has_many :question_groups
+  has_many :questions
   # attr_accessible :title, :body
 
   def questions
