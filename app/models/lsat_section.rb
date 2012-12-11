@@ -4,8 +4,10 @@ class LsatSection < ActiveRecord::Base
   has_many :questions
   # attr_accessible :title, :body
 
+=begin
   def questions
     # save a durable version so we don't recalculate this
     questions = question_groups.inject([]) { |memo, obj| obj.questions + memo }
   end
+=end
 end

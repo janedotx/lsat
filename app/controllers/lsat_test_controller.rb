@@ -1,6 +1,13 @@
 class LsatTestController < ApplicationController
   # this is not a test controller
   # this controller lets you take a diagnostic test
+  DIAGNOSTIC_TEST_ID = 2
+
+  def show_diagnostic_test
+    @test = LsatTest.find(2)
+    @questions = @test.all_questions
+  end
+
   def take_test
       puts "LOGGED IN?"
       puts session[:user_id]

@@ -26,4 +26,9 @@ populate("/Users/jian/lsat/test/fixtures/lsat_test.yml", LsatSection)
 
 # file = "/Users/jian/lsat/test/fixtures/lsat_sections.yml"
 
+=begin
 # Question.find(7, 8).each { |q| q.lsat_section_id = 2; q.save }
+populate("/home/jian/lsat/test/fixtures/lsat_sections.yml", LsatSection)
+populate("/home/jian/lsat/test/fixtures/questions.yml", LsatSection)
+populate("/home/jian/lsat/test/fixtures/lsat_test.yml", LsatSection)
+=end
