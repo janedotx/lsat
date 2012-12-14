@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208025118) do
+ActiveRecord::Schema.define(:version => 20121214043951) do
 
   create_table "lsat_sections", :force => true do |t|
     t.binary   "questions"
@@ -37,12 +37,13 @@ ActiveRecord::Schema.define(:version => 20121208025118) do
     t.string   "question_text"
     t.binary   "answers"
     t.integer  "correct_answer"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "question_group_id"
     t.string   "section_type"
     t.integer  "lsat_section_id"
     t.string   "prompt"
+    t.string   "question_text_image_file_path"
   end
 
   create_table "users", :force => true do |t|

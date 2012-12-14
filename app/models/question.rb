@@ -5,4 +5,8 @@ class Question < ActiveRecord::Base
   def unmarshaled_answers
     @unmarshaled_answers ||= Marshal.load(answers)
   end
+
+  def full_question_text_image_file_path
+    ENV['RAILS_ROOT'] + question_text_image_file_path
+  end
 end

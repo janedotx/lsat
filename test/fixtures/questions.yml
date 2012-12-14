@@ -9,6 +9,9 @@
 #
 # two: {}
 #  column: value
+#  # for future reference, do this to make sure it's loaded as a binary:
+#  binary_attribute: !binary |
+#   blah blah blah
 
 one:
   id: 7

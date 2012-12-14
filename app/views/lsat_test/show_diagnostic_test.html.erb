@@ -1,0 +1,18 @@
+Take a diagnostic test to see where you're at, before we give you a training schedule.
+
+<br/>
+
+Print the whole test out. Then click here to fill out the "scantron": <%= link_to "link", show_diagnostic_scantron_path %>
+<br />
+<br />
+
+<% @questions.each do |question| %>
+  <%= question.question_text %>
+  <br />
+  <% question.unmarshaled_answers.each_with_index do |ans, index| %>
+    <%= index %>.
+    <%= ans %>
+    <br/>
+  <% end %>
+  <br/>
+<% end %>

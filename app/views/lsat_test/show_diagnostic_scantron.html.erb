@@ -1,0 +1,17 @@
+
+Print the whole test out. Then click here to fill out the "scantron":
+<br />
+<br />
+
+<form action="<%= grade_diagnostic_test_path %>" method="post">
+  <% @questions.size.times do |number| %>
+    <br>
+    <%= "#{number + 1}. " %>
+    <% ['I', 'II', 'III', 'IV', 'V'].each_with_index do |answer, index| %>
+      <input type="radio" name="<%= number %>" value="<%= index %>">
+      <label for="<%= index %>"><%= answer %> </label>
+      <br>
+    <% end %>
+  <% end %>
+<input type="submit" value="Submit">
+</form>

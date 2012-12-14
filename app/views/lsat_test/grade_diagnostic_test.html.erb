@@ -1,0 +1,13 @@
+This is a breakdown of how many questions you got right, by section:
+<br/>
+<% @score.each_pair do |key, value| %>
+  <%= key.split("_").map { |x| x.capitalize }.join(" ") %>: 
+  <br/>
+  Correct: <%= value[0] %>
+  <br/>
+  Incorrect: <%= value[1] %>
+<br/>
+<br/>
+<% end %>
+
+Ouch, you didn't do so well. Buy our product.
