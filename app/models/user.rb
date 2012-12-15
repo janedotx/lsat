@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   def self.authenticate(screen_name, password)
     find_by_screen_name(screen_name).try(:authenticate, password)
   end
+
+  def viewed_question?(id)
+    QuestionView.where("user_id = ? AND question_id = ?", 1, 2).present?
+  end
 end

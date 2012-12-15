@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214043951) do
+ActiveRecord::Schema.define(:version => 20121215045620) do
 
   create_table "lsat_sections", :force => true do |t|
     t.binary   "questions"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(:version => 20121214043951) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "lsat_section_id"
+  end
+
+  create_table "question_views", :force => true do |t|
+    t.integer "question_id"
+    t.integer "user_id"
   end
 
   create_table "questions", :force => true do |t|
