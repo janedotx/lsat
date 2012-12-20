@@ -1,0 +1,49 @@
+<script type="text/javascript">
+// call this every second
+function updateClock(item, maxTime) {
+  var elem = $(item);
+  var seconds = parseInt(elem.find(".seconds").text()) + 1;
+  var minutes = parseInt(elem.find(".minutes").text());
+
+  if (minutes > maxTime) { return; }
+  if (seconds == 60) {
+    seconds = 0;
+    minutes = minutes + 1;
+  }
+
+  var secondsString = seconds.toString();
+  var minutesString = minutes.toString();
+
+  console.log(seconds);
+  if (seconds < 10 ) {
+    console.log(seconds);
+    secondsString = "0" + secondsString;
+    console.log(secondsString);
+  }
+
+  if (minutesString.length < 2) {
+    minutesString = "0" + minutesString;
+  }
+
+  elem.find(".seconds").text(secondsString);
+  elem.find(".minutes").text(minutesString);
+
+}
+
+//window.onLoad = window.setInterval(function () { updateClock("main_clock") }, 1000);
+  //function() {
+ // alert('loaded');
+ window.setInterval(function () { updateClock("#main_clock") }, 1000);
+//  window.setInterval(alert('10'), 1000);
+//};
+</script>
+
+<div>
+  <div id="overall">Time you have left for the entire test:
+    <span id="main_clock"><b><span class="minutes">00</span>:<span class="seconds">00</span></b></span>
+  </div>
+
+  <div id="question">Time you have left for this question:
+    <span id="question_clock"><b>0:00</b></span>
+  </div>
+</div>
