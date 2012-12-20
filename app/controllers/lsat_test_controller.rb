@@ -28,6 +28,10 @@ class LsatTestController < ApplicationController
     end
   end
 
+  def take_timed_test
+
+  end
+
   def take_test
       puts "LOGGED IN?"
       puts session[:user_id]

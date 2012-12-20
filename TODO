@@ -1,7 +1,6 @@
 create controller action to serve up one day of work, with video
 generate a test for each day, basically...
 add a column to LsatTest for user_id
-create data type for keeping track of whether one user has seen a question or not yet
 
 FIRST
 grade the fucking test by section
