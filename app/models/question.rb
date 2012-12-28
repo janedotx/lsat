@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
   def full_question_text_image_file_path
     ENV['RAILS_ROOT'] + question_text_image_file_path
   end
+
+  def image_path
+    "/question_text_image/#{id}.jpeg"
+  end
 end

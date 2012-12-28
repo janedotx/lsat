@@ -29,7 +29,10 @@ class LsatTestController < ApplicationController
   end
 
   def take_timed_test
+  end
 
+  def take_timed_section
+    @section = LsatSection.find(:first)
   end
 
   def take_test

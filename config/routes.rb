@@ -6,6 +6,7 @@ Lsat::Application.routes.draw do
   
   match 'take_test' => 'lsat_test#take_test'
   match 'take_timed_test' => 'lsat_test#take_timed_test'
+  match 'take_timed_section' => 'lsat_test#take_timed_section'
   match 'question_text_image/:id.jpeg' => 'question#question_text_image'
   match 'show_diagnostic_test' => 'lsat_test#show_diagnostic_test'
   match 'show_diagnostic_scantron' => 'lsat_test#show_diagnostic_scantron'
