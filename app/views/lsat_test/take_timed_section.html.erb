@@ -1,0 +1,105 @@
+<script type="text/javascript">
+// call this every second
+function updateClock(item, maxMinutes, maxSeconds, onMax) {
+  var elem = $(item);
+  var seconds = parseInt(elem.find(".seconds").text());
+  var minutes = parseInt(elem.find(".minutes").text());
+
+  if (maxMinutes == minutes && maxSeconds == seconds) { 
+    onMax();
+    return; 
+  }
+
+  seconds = seconds + 1;
+
+  if (seconds == 60) {
+    seconds = 0;
+    minutes = minutes + 1;
+  }
+
+  var secondsString = seconds.toString();
+  var minutesString = minutes.toString();
+
+  if (seconds < 10 ) {
+    secondsString = "0" + secondsString;
+  }
+
+  if (minutesString.length < 2) {
+    minutesString = "0" + minutesString;
+  }
+
+  elem.find(".seconds").text(secondsString);
+  elem.find(".minutes").text(minutesString);
+
+}
+
+function resetClock(elementId, handler) {
+  window.clearInterval(handler);
+  elem = $(elementId);
+  elem.find(".seconds").text("00");
+  elem.find(".minutes").text("00");
+}
+
+function startMainClock() {
+  if (window.mainClockHandler == null) {
+    window.mainClockHandler = window.setInterval(function () { updateClock("#main_clock", 35, 0, function() {}) }, 1000);
+    /* initialize current question in some global variable */
+
+    window.currentQuestionIndex = 0;
+    $("#0").attr('style', '');
+    // that anonymous function on 45 should tell student it's over. and take them to a new section
+
+  }
+}
+
+function setQuestionClockHandler() {
+    window.questionClockHandler = window.setInterval(function () { updateClock("#question_clock", 0, 15, getNewQuestion) }, 1000);
+}
+
+function getNewQuestion() {
+  resetClock("#question_clock", window.questionClockHandler);
+  if (window.mainClockHandler == null) { return; }
+  window.clearInterval(window.questionClockHandler);
+  if (window.currentQuestionIndex == window.totalQuestions - 1) {
+    console.log(window.currentQuestionIndex);
+    alert("you may use your remaining time to go over any question that you want");
+  } else {
+    var oldQuestion = window.currentQuestionIndex;
+    $("#" + oldQuestion.toString()).attr('style', 'display:none');
+    window.currentQuestionIndex += 1;
+    $("#" + window.currentQuestionIndex.toString()).attr('style', '');
+    setQuestionClockHandler();
+  }
+}
+
+function startTestClock() {
+  startMainClock();
+  setQuestionClockHandler();
+}
+
+function storeAnswer(question, answer) {
+  // store answer somehow in session
+}
+
+window.totalQuestions = <%= @section.questions.size %>
+</script>
+
+<div>
+  <div id="overall">
+    Click this button to start the test: <button id="start_overall_test" onclick="startTestClock();">Start!</button>
+    </br>
+    Time you have left for the entire test:
+    <span id="main_clock"><b><span class="minutes">00</span>:<span class="seconds">00</span></b></span>
+  </div>
+
+  <div id="question_timer">
+    Try a different question, if you're done with this one already, or stuck: <button id="start_question" onclick="getNewQuestion();">Move on</button>
+    </br>
+    Time you have left for this question:
+    <span id="question_clock"><b><span class="minutes">00</span>:<span class="seconds">00</span></b></span>
+  </div>
+
+  <% @section.questions.each_with_index do |question, index| %>
+    <%= render :partial => "question_image", :locals => { :index => index, :question => question } %>
+  <% end %>
+</div>
