@@ -3,13 +3,18 @@ class LsatTestController < ApplicationController
   # this controller lets you take a diagnostic test
   DIAGNOSTIC_TEST_ID = 2
 
+  def show_printable_test
+    @test = LsatTest.find(2)
+    @questions = @test.all_questions
+  end
+
   def show_diagnostic_test
     @test = LsatTest.find(2)
     @questions = @test.all_questions
   end
 
   def show_diagnostic_scantron
-    @test = LsatTest.find(2)
+    @test = LsatTest.find(1)
     @questions = @test.all_questions
   end
 

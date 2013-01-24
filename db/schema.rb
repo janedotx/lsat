@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215045620) do
+ActiveRecord::Schema.define(:version => 20130123000915) do
+
+  create_table "lessons", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "lessons_videos", :force => true do |t|
+    t.integer  "lesson_id"
+    t.integer  "video_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "lsat_sections", :force => true do |t|
     t.binary   "questions"
@@ -60,6 +72,13 @@ ActiveRecord::Schema.define(:version => 20121215045620) do
     t.string "password"
     t.string "password_digest"
     t.string "email"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "file_name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

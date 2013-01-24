@@ -1,17 +1,18 @@
-
-Print the whole test out. Then click here to fill out the "scantron":
-<br />
+Print the whole test out. Then click here to fill out the "scantron": <br />
 <br />
 
-<form action="<%= grade_diagnostic_test_path %>" method="post">
-  <% @questions.size.times do |number| %>
-    <br>
-    <%= "#{number + 1}. " %>
-    <% ['I', 'II', 'III', 'IV', 'V'].each_with_index do |answer, index| %>
-      <input type="radio" name="<%= number %>" value="<%= index %>">
-      <label for="<%= index %>"><%= answer %> </label>
+<% @test.lsat_sections.each do |section| %>
+  <%= section.section_type %>
+  <br>
+    <% @questions.each_with_index do |question, q_index| %>
       <br>
+      <%= "#{q_index + 1}. " %>
+      <%= question.question_text %>
+      <br>
+      <% ['A', 'B', 'C', 'D', 'E'].each_with_index do |answer, a_index| %>
+        <label for="<%= a_index %>"><%= answer %>. </label>
+        <%= question.unmarshaled_answers[a_index] %>
+        <br>
+      <% end %>
     <% end %>
-  <% end %>
-<input type="submit" value="Submit">
-</form>
+<% end %>

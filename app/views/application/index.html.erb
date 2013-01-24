@@ -1,6 +1,20 @@
-
-<div class="grid_11 spacer"></div>
-<div class="grid_1"><p>Sign in</p></div>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "index"%>
+  <script>
+  function slideDown() {
+  } 
+  </script>
+<% end %>
+<div class="grid_9 spacer"></div>
+<div class="grid_3">
+	<span id="sign_in">
+			<form action="/signin" method="post">
+					Screen name: <input style="width:40px;" type="text" name="screen_name">
+					Password: <input style="width:40px;" type="password" name="password">
+					<input type="submit" value="Sign in">
+			</form>
+	</span>
+</div>
 <div class="clear"></div>
 <!--form action="/signin" method="post">
   <br/>

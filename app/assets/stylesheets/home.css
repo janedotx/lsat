@@ -11,10 +11,13 @@ body {
 }
 
 body .container_12 {
-  background-color: #2b2b2b;
-  color: red;
   height: 100%;
   padding: 15px;
+}
+
+.grid_6 {
+	border: 1px;
+	background-color: yellow;
 }
 
 .spacer {

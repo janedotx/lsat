@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   belongs_to :question_group
+  belongs_to :lsat_section
   # attr_accessible :title, :body
   
   def unmarshaled_answers

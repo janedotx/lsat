@@ -1,7 +1,7 @@
 class LsatSection < ActiveRecord::Base
   belongs_to :lsat_test
   has_many :question_groups
-#  has_many :questions
+  has_many :questions
   # attr_accessible :title, :body
 
 #=begin
@@ -10,4 +10,8 @@ class LsatSection < ActiveRecord::Base
     questions = question_groups.inject([]) { |memo, obj| obj.questions + memo }
   end
 #=end
+
+  def presentable_section_type
+    section_type.split(/_/).map { |x| x.capitalize }.join(" ")
+  end
 end

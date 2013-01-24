@@ -4,6 +4,7 @@ Lsat::Application.routes.draw do
 
   root :to => "application#index"
   
+  match ':controller/(:action)'
   match 'take_test' => 'lsat_test#take_test'
   match 'take_timed_test' => 'lsat_test#take_timed_test'
   match 'take_timed_section' => 'lsat_test#take_timed_section'
