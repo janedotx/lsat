@@ -1,18 +1,21 @@
-Take a diagnostic test to see where you're at, before we give you a training schedule.
-
-<br/>
-
-Print the whole test out. Then click here to fill out the "scantron": <%= link_to "link", show_diagnostic_scantron_path %>
-<br />
+Print the whole test out, follow the instructions, and then take it. Why are we asking you to print it out, rather than doing it online? We want your first timed test to resemble actual test conditions as closely as possible, and the actual test will be on paper--not a computer screen. Once you're done, click here to fill out the "scantron" to get it graded: <%= link_to "Scantron", show_diagnostic_scantron_path %><br />
 <br />
 
-<% @questions.each do |question| %>
-  <%= question.question_text %>
-  <br />
-  <% question.unmarshaled_answers.each_with_index do |ans, index| %>
-    <%= index %>.
-    <%= ans %>
-    <br/>
-  <% end %>
-  <br/>
+<% @test.lsat_sections_by_ordinal_array_objects.each_with_index do |section, s_index| %>
+  <h4> SECTION <%= s_index + 1 %> </h4>
+  <%= section.instructions %>
+  <br>
+
+  <br>
+    <% section.questions_by_ordinal_array_objects.each_with_index do |question, q_index| %>
+      <br>
+      <%= "#{q_index + 1}. " %>
+      <%= question.question_text %>
+      <br>
+      <% ['A', 'B', 'C', 'D', 'E'].each_with_index do |answer, a_index| %>
+        <label for="<%= a_index %>"><%= answer %>. </label>
+        <%= question.unmarshaled_answers[a_index] %>
+        <br>
+      <% end %>
+    <% end %>
 <% end %>

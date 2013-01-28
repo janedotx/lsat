@@ -1,18 +1,25 @@
-Print the whole test out. Then click here to fill out the "scantron": <br />
-<br />
+Input your answer choices into this form.
 
-<% @test.lsat_sections.each do |section| %>
-  <%= section.section_type %>
-  <br>
-    <% @questions.each_with_index do |question, q_index| %>
-      <br>
-      <%= "#{q_index + 1}. " %>
-      <%= question.question_text %>
-      <br>
-      <% ['A', 'B', 'C', 'D', 'E'].each_with_index do |answer, a_index| %>
-        <label for="<%= a_index %>"><%= answer %>. </label>
-        <%= question.unmarshaled_answers[a_index] %>
-        <br>
+<form action="<%= grade_diagnostic_test_path %>" method="post">
+  <% @test.lsat_sections_by_ordinal_array_objects.each_with_index do |section, s_index| %>
+    <h4> SECTION <%= s_index + 1 %> </h4>
+      <% section.questions_by_ordinal_array_objects.each_with_index do |question, q_index| %>
+        <table>
+          <tr>
+            <td>
+              <%= "#{q_index + 1}. " %>
+            </td>
+            <% ['A', 'B', 'C', 'D', 'E'].each_with_index do |answer, a_index| %>
+                <td>
+                  <label for="<%= q_index %>_<%= a_index %>">
+                    <%= answer %>. 
+                  </label>
+                  <input type="radio" name="<%= section.id %>[<%= q_index %>]" value=<%="#{a_index}"%>>
+                </td>
+            <% end %>
+        </tr>
+        </table>
       <% end %>
-    <% end %>
-<% end %>
+  <% end %>
+  <input type="submit" value="Grade!">
+</form>

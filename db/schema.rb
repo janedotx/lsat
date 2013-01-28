@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123000915) do
+ActiveRecord::Schema.define(:version => 20130128073707) do
 
   create_table "lessons", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -26,16 +26,17 @@ ActiveRecord::Schema.define(:version => 20130123000915) do
   end
 
   create_table "lsat_sections", :force => true do |t|
-    t.binary   "questions"
+    t.binary   "questions_by_ordinal"
     t.string   "section_type"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.integer  "lsat_test_id"
   end
 
   create_table "lsat_tests", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.binary   "lsat_sections_by_ordinal"
   end
 
   create_table "question_groups", :force => true do |t|

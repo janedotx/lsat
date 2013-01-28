@@ -4,31 +4,35 @@ class LsatTestController < ApplicationController
   DIAGNOSTIC_TEST_ID = 2
 
   def show_printable_test
-    @test = LsatTest.find(2)
+    @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
     @questions = @test.all_questions
   end
 
   def show_diagnostic_test
-    @test = LsatTest.find(2)
+    @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
     @questions = @test.all_questions
   end
 
   def show_diagnostic_scantron
-    @test = LsatTest.find(1)
+    @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
     @questions = @test.all_questions
   end
 
-  def grade_diagnostic_test
-    @test = LsatTest.find(2)
-    @questions = @test.all_questions
-    @score = {"logical_reasoning" => [0,0], "reading_comprehension" => [0,0], "analytical_reasoning" => [0,0] }
 
-    @questions.each_with_index do |question, index|
-      student_answer = params[index.to_s].to_i
-      if question.correct_answer == student_answer
-        @score[question.section_type][0] += 1
-      else
-        @score[question.section_type][1] += 1
+  def grade_diagnostic_test
+    @test = LsatTest.find(DIAGNOSTIC_TEST_ID2)
+    @score = {}
+
+    @test.lsat_sections.each do |section|
+      @score[section.to_s] = {}
+      section_answers = params[section.id.to_s]
+"<%= section.id %>[<%= q_index %>]"
+      section_answers.each_pair do |key, val|
+        if question.correct_answer == student_answer
+          @score[question.section_type][0] += 1
+        else
+          @score[question.section_type][1] += 1
+        end
       end
     end
   end

@@ -14,4 +14,8 @@ class Question < ActiveRecord::Base
   def image_path
     "/question_text_image/#{id}.jpeg"
   end
+
+  def marshal_answers(unmarshaled_answers)
+    answers = Marshal.dump(unmarshaled_answers)
+  end
 end
