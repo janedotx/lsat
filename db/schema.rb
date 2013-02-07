@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128073707) do
+ActiveRecord::Schema.define(:version => 20130131214016) do
+
+  create_table "courses", :force => true do |t|
+    t.binary   "lesson_ids_by_ordinal"
+    t.integer  "user_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
 
   create_table "lessons", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -37,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130128073707) do
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
     t.binary   "lsat_sections_by_ordinal"
+    t.integer  "user_id"
   end
 
   create_table "question_groups", :force => true do |t|
@@ -62,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20130128073707) do
     t.integer  "lsat_section_id"
     t.string   "prompt"
     t.string   "question_text_image_file_path"
+    t.integer  "video_id"
   end
 
   create_table "users", :force => true do |t|

@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 
-gem 'json'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,7 +35,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
-
-gem 'libv8' #-3.11.8.4
-gem 'therubyracer' #-3.11.8.4
+# gem 'debugger'

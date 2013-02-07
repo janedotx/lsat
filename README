@@ -5,3 +5,25 @@ password: 1234
 _csrf_token
 
 we 0 index in all code, but for display purposes it's always 1-indexed.
+
+using digital color picker's hex values:
+red: 9a3d36
+green: 728c47
+
+using colorpicker.com, this is my best approximation:
+red: CC443D
+green: 729149
+
+red: a1453a
+
+xred: 9a3d36
+xgreen: 728c47
+xred: a1453a
+xred: CC443D
+green: 729149
+
+salmon: 213, 110, 102
+I want a construction paper texture.
+
+
+ellen likes this one: a1453a

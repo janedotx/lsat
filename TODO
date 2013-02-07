@@ -9,3 +9,24 @@ Farther away
 make things pretty
 fix CSRF stuff
 I seem to remember PNGs are better than other image files
+use images
+
+make things pretty
+
+vocab test
+
+set up apache
+
+
+a user has a collection of lessons
+some lessons can be reused and won't be just for one user
+a lesson is some videos, questions, and some games and such (don't know how games would be represented in the model quite yet), and a reading assignment
+so a lesson should have a lsat test (or tests)
+
+fonts from font squirrel:
+blackjack
+sophia
+snickles
+capture it
+
+we both like rock salt

@@ -18,22 +18,21 @@ class LsatTestController < ApplicationController
     @questions = @test.all_questions
   end
 
-
   def grade_diagnostic_test
-    @test = LsatTest.find(DIAGNOSTIC_TEST_ID2)
-    @score = {}
+    @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
+    @score = []
 
-    @test.lsat_sections.each do |section|
-      @score[section.to_s] = {}
+    @test.lsat_sections_by_ordinal_array_objects.each do |section|
       section_answers = params[section.id.to_s]
-"<%= section.id %>[<%= q_index %>]"
-      section_answers.each_pair do |key, val|
-        if question.correct_answer == student_answer
-          @score[question.section_type][0] += 1
+      graded_answers = []
+      section.questions_by_ordinal_array_objects.each_with_index do |question, i|
+        if question.correct_answer.to_s == section_answers[i.to_s]
+          graded_answers << 1
         else
-          @score[question.section_type][1] += 1
+          graded_answers << 0
         end
       end
+      @score << graded_answers
     end
   end
 

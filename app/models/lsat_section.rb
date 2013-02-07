@@ -53,6 +53,7 @@ class LsatSection < ActiveRecord::Base
     end
   end
 
+  # we aren't really going to be using the "has_many :questions" association.
   def questions_by_ordinal_array
     hash_to_ordered_array(Marshal.load(questions_by_ordinal))
   end
