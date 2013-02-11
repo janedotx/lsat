@@ -33,7 +33,11 @@
       </div>
     </div>
     <div class="grid_1 nav-side">
-      <%= link_to "Sign in", signin_path %>
+      <% if @user %>
+        <%= link_to "Sign out", signout_path %>
+      <% else %>
+        <%= link_to "Sign in", signin_path %>
+      <% end %>
     </div>
 </div>
 

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   before_filter :require_login, :except => [:index, :signin]
+  before_filter :set_user
 
 #  protect_from_forgery
 
@@ -36,7 +37,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def sign_out
+  def signout
     session[:user_id] = nil
     flash[:notice] = "You signed out!"
     redirect_to root_path
@@ -48,5 +49,10 @@ class ApplicationController < ActionController::Base
     puts "REQUIRE LOGIN"
     puts user
     redirect_to root_path if user.blank?
+  end
+
+  def set_user
+    return nil if session[:user_id].blank?
+    @user ||= User.find(session[:user_id].to_i)
   end
 end

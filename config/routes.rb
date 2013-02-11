@@ -12,7 +12,7 @@ Lsat::Application.routes.draw do
   match 'show_diagnostic_test' => 'lsat_test#show_diagnostic_test'
   match 'show_diagnostic_scantron' => 'lsat_test#show_diagnostic_scantron'
   match 'grade_diagnostic_test' => 'lsat_test#grade_diagnostic_test'
-  match 'sign_out' => 'application#sign_out'
+  match 'signout' => 'application#signout'
   match 'create_user' => 'application#create_user'
   match 'dogpile' => 'application#create_user'
   match 'signin' => 'application#signin'
