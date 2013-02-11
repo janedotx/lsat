@@ -1,111 +1,44 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag "index"%>
-  <script>
-  function slideDown() {
-  } 
-  </script>
 <% end %>
 <div class="clear"></div>
-<!--form action="/signin" method="post">
-  <br/>
-  Screen name: <input type="text" name="screen_name"><br>
-  Password: <input type="password" name="password"><br>
-  <input type="submit" value="Submit">
-</form-->
 
+<%= render :partial => "nav_bar" %>
 
-<div class="top_nav">
-    <div class="grid_1 nav-side">
-      <div class="nav-border">
-        Home
-      </div>
+<div id="main_content">
+  <div class="grid_8 ">
+    <div class="ellens_face white_border">
+      <img id="placeholder" src="<%= asset_path('ellen_placeholder.jpeg') %>" />
+        <p style="margin: 10px; text-align: center">
+          we need a bigger image. also maybe some description of why Renegade = Good.
+        </p>
     </div>
-    <div class="grid_1 nav-side">
-      <div class="nav-border">
-        About
-      </div>
-    </div>
-    <div class="grid_1 nav-side">
-      Contact
-    </div>
-    <div class="grid_1 nav-side spacer">
-    </div>
-
-  <div class="grid_4 centerpiece">
-      <div style="font-size: 35px;">RENEGADE</div> 
-      <div style="font-size: 35px;">LSAT PREP</div>
   </div>
+  <div class="grid_4">
+    <div class="sidebar white_border" style="border-left-style:none;">
+      <h3>
+        FEATURING
+      </h2>
 
-    <div class="grid_1 spacer nav-side">
-      <div class="nav-border">
-      </div>
-    </div>
-    <div class="grid_1 nav-side">
-      <div class="nav-border">
-        Filler
-      </div>
-    </div>
-    <div class="grid_1 nav-side">
-      <div class="nav-border">
-        Pricing
-      </div>
-    </div>
-    <div class="grid_1 nav-side">
-        Sign in
-    </div>
-</div>
-<div class="clear"></div>
+      <ul>
+        <li>
+          Surefire methods for improving your reading comprehension skills. Warning: you'll be required to apply yourself.
+        </li>
+        <li>
+          TWO hours of free tutoring from our resident expert, Miss Ellen Cassidy.
+        </li>
+        <li>
+          Learn to focus with our unique suite of focus games (coming soon).
+        </li>
+        <li>
+          Enlighten your poor soul through reading our carefully-curated selections from The New Yorker and other fine magazines. You know, the kinds of things real lawyers like to read in their precious downtime.
+        </li>
+      </ul>
 
-    <div class="grid_12 copy_line">
-      is here to bring you the ULTIMATE
     </div>
-    <div class="clear"></div>
-    <div class="grid_12 copy_line">
-      the most UNCONVENTIONAL
-    </div>
-    <div class="clear"></div>
-    <div class="grid_12 copy_line centerpiece_copy">
-      online LSAT solution
-    </div>
-<div class="clear"></div>
-<div class="grid_12">
-  <div class="ellens_face">
-    placeholder for an image of ellen looking like a badass renegade or something else relevant
   </div>
 </div>
-<div class="grid_12 copy_line" style="font-size: 45px">
-  FEATURING
-</div>
-<div class="clear"></div>
-<div class="grid_1 spacer"></div>
-<div class="grid_3 feature">
-  <h3>
-    Test prep secret sauce
-  </h3>
-  <ul>
-    <li>
-      The LSAT has a liberal bias!
-    </li>
-    <li>
-      You need a big vocabulary!
-    </li>
-    <li>
-      Here is my advice: stop sucking.
-      </li>
-  </ul>
-</div>
-<div class="grid_4 feature">
-  <h2>
-    Ellen the Renegade
-  </h2>
-</div>
-<div class="grid_3 feature">
-  <h4>
-    Some other thing we're good at
-  </h4>
-  <p>
-    One of the things we're not good at is centering, but we're going to work on that, aren't we?
-  </p>
-</div>
+
 <div class="grid_1 spacer">
 </div>
+

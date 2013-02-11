@@ -1,8 +1,35 @@
-<% if session[:user_id] %>
-  you logged in!
-<% else %>
-  you failed!
-  <br/>
-  go back home!
-  <%= link_to root %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "signin"%>
+  <script>
+  function slideDown() {
+  } 
+  </script>
 <% end %>
+<div class="clear"></div>
+
+<%= render :partial => "nav_bar" %>
+
+<div id="main_content">
+  <div class="grid_4 spacer">
+  </div>
+  <div class="grid_4">
+    <div id="signin_form" class="white_border">
+      Sign in to access your course.
+      <form action="/signin" method="post">
+        <span> Screen name: </span>
+          <input type="text" name="screen_name" size="10" id="screen_name">
+        <div id="password">
+          <span id="password_label">
+            Password: 
+          </span>
+          <input type="password" name="password" size="10"><br>
+        </div>
+        <br/>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  <div class="grid_4 spacer">
+  </div>
+</div>
+

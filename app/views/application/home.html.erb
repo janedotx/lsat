@@ -1,6 +1,8 @@
 <% content_for :head do %>
 	<%= stylesheet_link_tag "home" %>
 <% end %>
+
+<%= render :partial => "nav_bar" %>
 link to diagnostic test:
 <%= link_to "this is the test", take_test_path(:test_id => -1) %>
 
