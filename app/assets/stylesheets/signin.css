@@ -1,0 +1,21 @@
+#signin_form {
+  padding: 20px;
+  text-align: center;
+}
+
+#signin_form form {
+  margin-top: 15px;
+}
+
+#screen_name {
+  margin-left: 5px;
+}
+
+#password_label {
+  padding-right: 26px;
+}
+
+#password {
+  margin-top: 10px;
+}
+

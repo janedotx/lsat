@@ -2,6 +2,10 @@ create controller action to serve up one day of work, with video
 generate a test for each day, basically...
 add a column to LsatTest for user_id
 
+each question should know which prep test it came from
+and the cost of that prep test
+so we know how much it costs for a 'copy' of that question
+
 FIRST
 grade the fucking test by section
 
@@ -10,8 +14,6 @@ make things pretty
 fix CSRF stuff
 I seem to remember PNGs are better than other image files
 use images
-
-make things pretty
 
 vocab test
 
@@ -23,6 +25,7 @@ some lessons can be reused and won't be just for one user
 a lesson is some videos, questions, and some games and such (don't know how games would be represented in the model quite yet), and a reading assignment
 so a lesson should have a lsat test (or tests)
 
+---------
 fonts from font squirrel:
 blackjack
 sophia

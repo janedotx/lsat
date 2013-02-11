@@ -1,6 +1,6 @@
 class LsatTestController < ApplicationController
   # this is not a test controller
-  # this controller lets you take a diagnostic test
+  # this controller lets you take a test
   DIAGNOSTIC_TEST_ID = 2
 
   def show_printable_test

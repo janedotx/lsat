@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131214016) do
+ActiveRecord::Schema.define(:version => 20130211075437) do
 
   create_table "courses", :force => true do |t|
     t.binary   "lesson_ids_by_ordinal"
@@ -74,14 +74,15 @@ ActiveRecord::Schema.define(:version => 20130131214016) do
   end
 
   create_table "users", :force => true do |t|
-    t.string "screen_name"
-    t.binary "diagnostic_scores"
-    t.string "salt"
-    t.string "current_test_type"
-    t.string "current_section_type"
-    t.string "password"
-    t.string "password_digest"
-    t.string "email"
+    t.string  "screen_name"
+    t.binary  "diagnostic_scores"
+    t.string  "salt"
+    t.string  "current_test_type"
+    t.string  "current_section_type"
+    t.string  "password"
+    t.string  "password_digest"
+    t.string  "email"
+    t.boolean "taken_diagnostic"
   end
 
   create_table "videos", :force => true do |t|
