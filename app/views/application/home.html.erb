@@ -3,24 +3,36 @@
 	<%= stylesheet_link_tag "general" %>
 <% end %>
 
-<%= render :partial => "nav_bar" %>
-link to diagnostic test:
-<%= link_to "this is the test", take_test_path(:test_id => -1) %>
+<% if @user.taken_diagnostic %>
+  <br>
+  link to schedule
 
-<br>
-link to schedule
+  <br>
+  link to a timed test:
 
-<br>
-link to a timed test:
+  <%= link_to "this is the timed test", take_timed_test_path(:test_id => -1) %>
+  <br>
 
-<%= link_to "this is the timed test", take_timed_test_path(:test_id => -1) %>
-<br>
+  <%= link_to "Sign out", signout_path %>
 
-<%= link_to "Sign out", signout_path %>
+  <div class="grid_6" id="lesson">
+    stuff
+  </div>
+  <div class="grid_6" id="other">
+  more stuff
+  </div>
+<% else %>
 
-				<div class="grid_6" id="lesson">
-					stuff
-				</div>
-				<div class="grid_6" id="other">
-				more stuff
-				</div>
+  The first step is to take a diagnostic test and show us where you're at, so we can tweak the course schedule for you.
+  <div class="clear"></div>
+
+  <div class="grid_4 spacer"></div>
+
+  <div class="grid_4">
+    <div class="diagnose white_border">
+      <%= link_to "Click on me.", show_diagnostic_test_path %>
+    </div>
+  </div>
+
+<% end %>
+

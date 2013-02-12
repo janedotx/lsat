@@ -1,5 +1,18 @@
-Print the whole test out, follow the instructions, and then take it. Why are we asking you to print it out, rather than doing it online? We want your first timed test to resemble actual test conditions as closely as possible, and the actual test will be on paper--not a computer screen. Once you're done, click here to fill out the "scantron" to get it graded: <%= link_to "Scantron", show_diagnostic_scantron_path %><br />
-<br />
+<% content_for :head do %>
+	<%= stylesheet_link_tag "home" %>
+<% end %>
+
+Print the whole test out, follow the instructions, and then take it. Why are we asking you to print it out, rather than doing it online? We want your first timed test to resemble actual test conditions as closely as possible, and the actual test will be on paper--not a computer screen. Once you're done, proceed to our digital scantron to get it graded: 
+
+  <div class="clear"></div>
+  <div class="grid_4 spacer"></div>
+  <div class="grid_4">
+    <div class="diagnose white_border">
+      <%= link_to "Scantron", show_diagnostic_scantron_path %><br />
+    </div>
+  </div>
+  <div class="grid_4 spacer"></div>
+  <div class="clear"></div>
 
 <% @test.lsat_sections_by_ordinal_array_objects.each_with_index do |section, s_index| %>
   <h4> SECTION <%= s_index + 1 %> </h4>

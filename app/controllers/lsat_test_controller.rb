@@ -48,7 +48,7 @@ class LsatTestController < ApplicationController
       puts session[:user_id]
     if params[:test_id].to_i == -1
       puts "first question"
-      test = LsatTest.find(:first)
+      test = LsatTest.find(DIAGNOSTIC_TEST_ID)
       cookies[:test_id] = test.id
       cookies[:test_results] = Marshal.dump([])
       cookies[:current_test_question] = 0
@@ -57,7 +57,7 @@ class LsatTestController < ApplicationController
       puts "user id overwritten?"
       puts session[:user_id]
       @question = Question.find(questions[0])
-      @section = @question.question_group.lsat_section
+      @section = @question.lsat_section
     else
       puts "next question"
       puts session[:user_id]
