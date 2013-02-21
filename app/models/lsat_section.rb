@@ -1,6 +1,6 @@
 class LsatSectionValidator < ActiveModel::Validator
   def validate(record)
-    unless ["logical_reasoning", "analytical_reasoning", "reading_comprehension"].include?(record.section_type)
+    unless QUESTION_TYPES.include?(record.section_type)
       record.errors[:section_type] << "Need a section type of logical_reasoning, analytical_reasoning, or reading_comprehension"
     end
   end

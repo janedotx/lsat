@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211075437) do
+ActiveRecord::Schema.define(:version => 20130221092154) do
 
   create_table "courses", :force => true do |t|
     t.binary   "lesson_ids_by_ordinal"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(:version => 20130211075437) do
   end
 
   create_table "lessons", :force => true do |t|
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "lsat_test_id"
+    t.binary   "video_ids"
+    t.string   "lesson_type"
+  end
+
+  create_table "lessons_collections", :force => true do |t|
+    t.binary   "lesson_ids"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -45,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20130211075437) do
     t.datetime "updated_at",               :null => false
     t.binary   "lsat_sections_by_ordinal"
     t.integer  "user_id"
+    t.boolean  "timed"
   end
 
   create_table "question_groups", :force => true do |t|
@@ -57,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20130211075437) do
   create_table "question_views", :force => true do |t|
     t.integer "question_id"
     t.integer "user_id"
+    t.string  "answer"
   end
 
   create_table "questions", :force => true do |t|
@@ -83,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20130211075437) do
     t.string  "password_digest"
     t.string  "email"
     t.boolean "taken_diagnostic"
+    t.integer "current_lesson"
   end
 
   create_table "videos", :force => true do |t|

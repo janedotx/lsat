@@ -30,6 +30,6 @@ diagnostic_logical_reasoning_two:
 
 diagnostic_analytical_reasoning:
   id: 8
-  section_type: logical_reasoning
+  section_type: analytical_reasoning
   #questions: \x04\b[\ai\x12i\x13
   lsat_test_id: 2

@@ -20,20 +20,32 @@ class LsatTestController < ApplicationController
 
   def grade_diagnostic_test
     @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
-    @score = []
+    @score = {}
 
     @test.lsat_sections_by_ordinal_array_objects.each do |section|
       section_answers = params[section.id.to_s]
       graded_answers = []
       section.questions_by_ordinal_array_objects.each_with_index do |question, i|
+        qv = QuestionView.new
+        qv.user_id = @user.id
+        qv.question_id = question.id
+        qv.answer = section_answers[i.to_s]
+        qv.save
+        @user.taken_diagnostic = true
+        @user.save
         if question.correct_answer.to_s == section_answers[i.to_s]
           graded_answers << 1
         else
           graded_answers << 0
         end
       end
-      @score << graded_answers
+      if @score[section.section_type].present?
+        @score[section.section_type] = @score[section.section_type] + graded_answers
+      else
+        @score[section.section_type] = graded_answers
+      end
     end
+    LessonsCollection.new(@user, @score).save
   end
 
   def take_timed_test
