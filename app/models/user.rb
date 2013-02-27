@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_one :lessons_collection
   validates :screen_name, :length => { :mininum => 4, :maximum => 25 }
   # attr_accessible :title, :body
   attr_accessible :screen_name, :email, :password

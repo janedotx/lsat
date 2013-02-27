@@ -45,7 +45,7 @@ class LsatTestController < ApplicationController
         @score[section.section_type] = graded_answers
       end
     end
-    LessonsCollection.new(@user, @score).save
+    LessonsCollection.set_for_user(@user, @score)
   end
 
   def take_timed_test

@@ -3,11 +3,10 @@ This is your score, by section:
 <br/>
 <br/>
 <%# you shouldn't be doing this in the view, silly %>
+<%= @score.inspect %>
 <% @score.each_pair do |key, answers| %>
   <%= make_presentable(key) %>:
   <br/>
-  <% num_correct = answers.inject(0) { |ans, sum| ans + sum } %>
-  <%= num_correct %> out of <%= answers.size %>
 <br/>
 <br/>
 <% end %>
