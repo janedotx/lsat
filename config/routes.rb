@@ -6,6 +6,8 @@ Lsat::Application.routes.draw do
   
   match ':controller/(:action)'
   match 'lesson_of_the_day' => 'lessons_collection#show'
+  match 'video' => 'videos#send_video'
+  match 'mp3' => 'videos#send_mp3'
   match 'take_test' => 'lsat_test#take_test'
   match 'take_timed_test' => 'lsat_test#take_timed_test'
   match 'take_timed_section' => 'lsat_test#take_timed_section'
