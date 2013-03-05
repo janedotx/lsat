@@ -38,3 +38,5 @@ gem 'therubyracer'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'passenger'
