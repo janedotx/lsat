@@ -24,7 +24,9 @@ class ApplicationController < ActionController::Base
   end
 
   def home
-
+    if @user.taken_diagnostic
+      redirect_to :lesson_of_the_day
+    end
   end
 
   def signin
