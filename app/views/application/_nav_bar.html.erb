@@ -1,19 +1,17 @@
-<div class="top_nav">
-    <div class="grid_1 nav-side">
-      <div class="nav-border">
+<div class="clear"></div>
+<div class="grid_4 top_nav nav_left">
+  <ul class="nav-list">
+    <li class="nav_border">
         <%= link_to "Home", root_path %>
-      </div>
-    </div>
-    <div class="grid_1 nav-side">
-      <div class="nav-border">
+    </li>
+    <li class="nav_border">
         <a>About</a>
-      </div>
-    </div>
-    <div class="grid_1 nav-side">
+    </li>
+    <li class="">
       <a>Contact</a>
-    </div>
-    <div class="grid_1 nav-side spacer">
-    </div>
+    </li>
+  </ul>
+</div>
 
   <div class="grid_4 centerpiece">
     <a href="/">
@@ -22,25 +20,22 @@
     </a>
   </div>
 
-    <div class="grid_1 spacer nav-side">
-    </div>
-    <div class="grid_1 nav-side">
-      <div class="nav-border">
-        <a>Filler</a>
-      </div>
-    </div>
-    <div class="grid_1 nav-side">
-      <div class="nav-border">
-        <a>Pricing</a>
-      </div>
-    </div>
-    <div class="grid_1 nav-side">
+<div class="grid_4 top_nav nav_right">
+  <ul class="nav-list">
+    <li class="">
       <% if @user %>
         <%= link_to "Sign out", signout_path %>
       <% else %>
         <%= link_to "Sign in", signin_path %>
       <% end %>
-    </div>
+    </li>
+    <li class="nav_border">
+      <a>Contact</a>
+    </li>
+    <li class="nav_border">
+        <a>About</a>
+    </li>
+  </ul>
 </div>
 
 <div class="clear"></div>
