@@ -9,4 +9,9 @@ end
 class Lesson < ActiveRecord::Base
   has_and_belongs_to_many :videos
   # attr_accessible :title, :body
+
+  # i guess videos will just be urls to wherever they live on vimeo
+  def video_ids_unmarshaled
+    Marshal.load(video_ids)
+  end
 end

@@ -1,6 +1,8 @@
 class LsatTestController < ApplicationController
   # this is not a test controller
   # this controller lets you take a test
+
+  # TODO this constant should be set in some initializer depending on the environment we're using
   DIAGNOSTIC_TEST_ID = 2
 
   def show_printable_test
@@ -20,31 +22,8 @@ class LsatTestController < ApplicationController
 
   def grade_diagnostic_test
     @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
-    @score = {}
-
-    @test.lsat_sections_by_ordinal_array_objects.each do |section|
-      section_answers = params[section.id.to_s]
-      graded_answers = []
-      section.questions_by_ordinal_array_objects.each_with_index do |question, i|
-        qv = QuestionView.new
-        qv.user_id = @user.id
-        qv.question_id = question.id
-        qv.answer = section_answers[i.to_s]
-        qv.save
-        @user.taken_diagnostic = true
-        @user.save
-        if question.correct_answer.to_s == section_answers[i.to_s]
-          graded_answers << 1
-        else
-          graded_answers << 0
-        end
-      end
-      if @score[section.section_type].present?
-        @score[section.section_type] = @score[section.section_type] + graded_answers
-      else
-        @score[section.section_type] = graded_answers
-      end
-    end
+    @user.taken_diagnostic = true
+    @score = LsatTest.grade(user, DIAGNOSTIC_TEST_ID, params)
     LessonsCollection.set_for_user(@user, @score)
   end
 
@@ -56,8 +35,6 @@ class LsatTestController < ApplicationController
   end
 
   def take_test
-      puts "LOGGED IN?"
-      puts session[:user_id]
     if params[:test_id].to_i == -1
       puts "first question"
       test = LsatTest.find(DIAGNOSTIC_TEST_ID)

@@ -4,8 +4,11 @@ Lsat::Application.routes.draw do
 
   root :to => "application#index"
   
+  match 'pdfs/show/(:filename)' => 'pdfs#show'
   match ':controller/(:action)'
   match 'lesson_of_the_day' => 'lessons_collection#show'
+  match 'questions_of_the_day' => 'lessons_collection#questions_of_the_day'
+  match 'grade_lesson' => 'lessons_collection#grade_lesson'
   match 'video' => 'videos#send_video'
   match 'mp3' => 'videos#send_mp3'
   match 'take_test' => 'lsat_test#take_test'

@@ -1,4 +1,6 @@
+add bit to Lesson to indicate whether it's the end of a module or not
 create controller action to serve up one day of work, with video
+
 generate a test for each day, basically...
 add a column to LsatTest for user_id
 

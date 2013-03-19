@@ -1,5 +1,5 @@
 class LessonsCollection < ActiveRecord::Base
-  # this will obviously change depending on the environment
+  # TODO this will obviously change depending on the environment
   CANONICAL_LESSONS_COLLECTION_ID = 1
   LR_LESSONS_COLLECTION_ID = 1
   RC_LESSONS_COLLECTION_ID = 1
@@ -29,14 +29,24 @@ class LessonsCollection < ActiveRecord::Base
     collection = LessonsCollection.new
     collection.user_id = user.id
     collection.lesson_ids = lesson_ids
+    collection.current_lesson_index = 0
     collection.save
-    user.current_lesson = 0
     user.save
+  end
+
+  def lesson_ids_unpacked
+    @lesson_ids_unpacked ||= Marshal.load(lesson_ids)
+  end
+
+  def current_lesson_id
+    lesson_ids_unpacked[current_lesson_index].to_i
   end
 
   private
 
   def self.is_baseline?(scores)
+    logger.debug("BASELINE")
+    logger.debug(scores)
     is_baseline_LR = scores["logical_reasoning"] >= 0.35 && scores["logical_reasoning"] <= 0.45
     is_baseline_RC = scores["reading_comprehension"] >= 0.35 && scores["logical_reasoning"] <= 0.45
     is_baseline_AR = scores["analytical_reasoning"] >= 0.35 && scores["logical_reasoning"] <= 0.45

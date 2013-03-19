@@ -31,7 +31,6 @@ class ApplicationController < ActionController::Base
 
   def signin
     if User.authenticate(params[:screen_name], params[:password])
-      puts "AUTHENTICATED"
       # save in cookie
       @user = User.find_by_screen_name(params[:screen_name])
       session[:user_id] = @user.id
@@ -48,8 +47,6 @@ class ApplicationController < ActionController::Base
   private
 
   def require_login
-    puts "REQUIRE LOGIN"
-    puts user
     redirect_to root_path if user.blank?
   end
 

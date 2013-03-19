@@ -34,4 +34,6 @@ Lsat::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 end

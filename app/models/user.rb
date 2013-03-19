@@ -14,4 +14,9 @@ class User < ActiveRecord::Base
   def viewed_question?(id)
     QuestionView.where("user_id = ? AND question_id = ?", 1, 2).present?
   end
+
+  def current_lesson
+    return nil if lessons_collection.nil?
+    Lesson.find(lessons_collection.current_lesson_id)
+  end
 end
