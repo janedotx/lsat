@@ -1,0 +1,21 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag "lessons_collection" %>
+	<%= stylesheet_link_tag "general" %>
+<% end %>
+
+<% @percentages.each_pair do |key, answers| %>
+  <%= make_presentable(key) %>: <%= answers * 100 %>%
+  <br/>
+<br/>
+<% end %>
+
+<% if @passed %>
+  Congratulations! You've hit your target and you are well on your way towards achieving your dream score of a 157. For now, go back to home, and finish the rest of today's exercises. Tomorrow, you may advance to a new lesson.
+<% else %>
+  Oh dear. You are not doing well enough that you can proceed to the next lesson. Go back home and finish the rest of today's exercises, and tomorrow, you'll get some more questions on the topic that was covered today.
+<% end %>
+
+<br/>
+<br/>
+
+<%= link_to "Back to Lesson of the Day", lesson_of_the_day_path %>
