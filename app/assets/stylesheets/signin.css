@@ -1,9 +1,10 @@
-#signin_form {
+#form {
   padding: 20px;
   text-align: center;
+  color: #A1453A;
 }
 
-#signin_form form {
+#form form {
   margin-top: 15px;
 }
 
@@ -19,3 +20,19 @@
   margin-top: 10px;
 }
 
+
+.param {
+  float: left;
+}
+
+.field {
+  margin-left: 10px;
+}
+
+.mismatch {
+  font-size: 10px;
+}
+
+.errors {
+  text-align: left;
+}

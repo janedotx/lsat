@@ -26,6 +26,8 @@ Lsat::Application.routes.draw do
   match 'grade_question' => 'lsat_test#grade_question'
   match 'next_question' => 'lsat_test#next_question'
   match 'finish_test' => 'lsat_test#finish_test'
+
+  resources :users
 #  match ''
 
   # Sample of regular route:

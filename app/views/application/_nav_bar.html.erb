@@ -5,10 +5,10 @@
         <%= link_to "Home", root_path %>
     </li>
     <li class="nav_border">
-        <a>About</a>
+        <a>Pricing</a>
     </li>
     <li class="">
-      <a>Contact</a>
+      <a>About</a>
     </li>
   </ul>
 </div>
@@ -24,16 +24,20 @@
   <ul class="nav-list">
     <li class="">
       <% if @user %>
-        <%= link_to "Sign out", signout_path %>
+        <%= link_to "Sign Out", signout_path %>
       <% else %>
-        <%= link_to "Sign in", signin_path %>
+        <%= link_to "Sign In", signin_path %>
       <% end %>
     </li>
     <li class="nav_border">
-      <a>Contact</a>
+    <% unless @user %>
+        <a><%= link_to "Sign Up", :controller => :users, :action => "show_signup_form" %></a>
+    <% else %>
+        <a>My Progress</a>
+    <% end %>
     </li>
     <li class="nav_border">
-        <a>About</a>
+        <a>FAQ</a>
     </li>
   </ul>
 </div>
