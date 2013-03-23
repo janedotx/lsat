@@ -12,7 +12,6 @@ class LsatTestController < ApplicationController
 
   def show_diagnostic_test
     @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
-    @questions = @test.all_questions
   end
 
   def show_diagnostic_scantron
@@ -23,7 +22,13 @@ class LsatTestController < ApplicationController
   def grade_diagnostic_test
     @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
     @user.taken_diagnostic = true
+    @user.save
     @score = LsatTest.grade(user, DIAGNOSTIC_TEST_ID, params)
+    @percentages = {}
+    @scores.each_pair do |key, val|
+      num_right = val.inject(0) { |ans, sum| ans + sum }
+      @percentages[key] = num_right.to_f/val.size
+    end
     LessonsCollection.set_for_user(@user, @score)
   end
 

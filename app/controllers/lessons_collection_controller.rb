@@ -9,6 +9,15 @@ class LessonsCollectionController < ApplicationController
   end
 
   def grade_lesson
-    LsatTest.grade(@user, params["test_id"], params)
+    @scores = LsatTest.grade(@user, params["test_id"], params)
+    @percentages = {}
+    @scores.each_pair do |key, val|
+      num_right = val.inject(0) { |ans, sum| ans + sum }
+      @percentages[key] = num_right.to_f/val.size
+    end
+    @passed = @percentages.each_value.to_a.map { |x| x > 0.5 }.include? false
+
+    # TODO if we failed to pass we need to Do Something about it
+    
   end
 end

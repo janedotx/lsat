@@ -1,5 +1,6 @@
 class LessonsCollection < ActiveRecord::Base
   # TODO this will obviously change depending on the environment
+  # also these ids will be different depending on how badly the user does
   CANONICAL_LESSONS_COLLECTION_ID = 1
   LR_LESSONS_COLLECTION_ID = 1
   RC_LESSONS_COLLECTION_ID = 1
@@ -8,14 +9,15 @@ class LessonsCollection < ActiveRecord::Base
   attr_accessible :user_id
 
   def self.set_for_user(user, scores)
+    percentages = {}
     scores.each_pair do |key, val|
       num_right = val.inject(0) { |ans, sum| ans + sum }
-      scores[key] = num_right.to_f/val.size
+      percentages[key] = num_right.to_f/val.size
     end
-    if is_baseline?(scores)
+    if is_baseline?(percentages)
       lesson_ids = LessonsCollection.find(CANONICAL_LESSONS_COLLECTION_ID).lesson_ids
     else
-      worst_section = scores.min { |a, b| a[1] <=> b[1] }
+      worst_section = percentages.min { |a, b| a[1] <=> b[1] }
       case worst_section
       when "logical_reasoning" 
         lesson_ids = LessonsCollection.find(LR_LESSONS_COLLECTION_ID).lesson_ids

@@ -3,11 +3,12 @@ This is your score, by section:
 <br/>
 <br/>
 <%# you shouldn't be doing this in the view, silly %>
-<%= @score.inspect %>
-<% @score.each_pair do |key, answers| %>
-  <%= make_presentable(key) %>:
+<% @percentages.each_pair do |key, answers| %>
+  <%= make_presentable(key) %>: <%= answers * 100 %>%
   <br/>
 <br/>
-<br/>
 <% end %>
+
+<p>
+Now that we've calculated your score, you can start working your way through our study schedule! <%= link_to "Begin", lesson_of_the_day_path %>
 

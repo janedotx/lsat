@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
 
   def index
     if user
-      redirect_to home_path
+      if !@user.taken_diagnostic
+        redirect_to :action => "show_diagnostic_test", :controller => "lsat_test"
+      else
+        redirect_to :lesson_of_the_day
+      end
     end
   end
 
@@ -24,9 +28,6 @@ class ApplicationController < ActionController::Base
   end
 
   def home
-    if !@user.taken_diagnostic
-      redirect_to :lesson_of_the_day
-    end
   end
 
   def signin

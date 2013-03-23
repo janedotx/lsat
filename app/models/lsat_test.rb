@@ -23,8 +23,6 @@ class LsatTest < ActiveRecord::Base
           qv.question_id = question.id
           qv.answer = section_answers[i.to_s]
           qv.save
-          user.taken_diagnostic = true
-          user.save
           if question.correct_answer.to_s == section_answers[i.to_s]
             graded_answers << 1
           else

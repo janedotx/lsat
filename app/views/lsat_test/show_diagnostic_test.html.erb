@@ -2,7 +2,7 @@
 	<%= stylesheet_link_tag "home" %>
 <% end %>
 
-Print the whole test out, follow the instructions, and then take it. Why are we asking you to print it out, rather than doing it online? We want your first timed test to resemble actual test conditions as closely as possible, and the actual test will be on paper--not a computer screen. Once you're done, proceed to our digital scantron to get it graded: 
+Print the whole test out, follow the instructions, and then take it: <%= link_to "Diagnostic test", :controller => "pdfs", :action => "show", :pdf => @test.pdf %>. Why are we asking you to print it out, rather than doing it online? We want your first timed test to resemble actual test conditions as closely as possible, and the actual test will be on paper--not a computer screen. Once you're done, proceed to our digital scantron to get it graded: 
 
   <div class="clear"></div>
   <div class="grid_4 spacer"></div>
@@ -14,21 +14,4 @@ Print the whole test out, follow the instructions, and then take it. Why are we 
   <div class="grid_4 spacer"></div>
   <div class="clear"></div>
 
-<% @test.lsat_sections_by_ordinal_array_objects.each_with_index do |section, s_index| %>
-  <h4> SECTION <%= s_index + 1 %> </h4>
-  <%= section.instructions %>
-  <br>
 
-  <br>
-    <% section.questions_by_ordinal_array_objects.each_with_index do |question, q_index| %>
-      <br>
-      <%= "#{q_index + 1}. " %>
-      <%= question.question_text %>
-      <br>
-      <% ['A', 'B', 'C', 'D', 'E'].each_with_index do |answer, a_index| %>
-        <label for="<%= a_index %>"><%= answer %>. </label>
-        <%= question.unmarshaled_answers[a_index] %>
-        <br>
-      <% end %>
-    <% end %>
-<% end %>

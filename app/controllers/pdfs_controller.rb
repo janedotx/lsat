@@ -5,7 +5,7 @@ class PdfsController < ApplicationController
     if @user
       send_file "#{Rails.root}/app/assets/pdfs/#{params[:pdf]}", :disposition => 'inline' #{params[:filename]}"
     else
-      render :text => 'signin'
+      redirect_to :controller => "application", :action => "signin"
     end
 =begin
       # this line appeared to be bypassing everything
