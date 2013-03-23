@@ -1,0 +1,24 @@
+<form action="<%= grade_lesson_path %>" method="post">
+  <% @questions.lsat_sections_by_ordinal_array_objects.each_with_index do |section, s_index| %>
+    <h4> SECTION <%= s_index + 1 %> </h4>
+      <% section.questions_by_ordinal_array_objects.each_with_index do |question, q_index| %>
+        <table>
+          <tr>
+            <td>
+              <%= "#{q_index + 1}. " %>
+            </td>
+            <% ['A', 'B', 'C', 'D', 'E'].each_with_index do |answer, a_index| %>
+                <td>
+                  <label for="<%= q_index %>_<%= a_index %>">
+                    <%= answer %>. 
+                  </label>
+                  <input type="radio" name="<%= section.id %>[<%= q_index %>]" value=<%="#{a_index}"%>>
+                </td>
+            <% end %>
+        </tr>
+        </table>
+      <% end %>
+  <% end %>
+  <input type="hidden" name="test_id" value=<%="#{@questions.id}"%>>
+  <input type="submit" value="Grade!">
+</form>

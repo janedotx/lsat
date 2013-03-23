@@ -1,0 +1,15 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag "lessons_collection" %>
+	<%= stylesheet_link_tag "general" %>
+<% end %>
+
+<div class="grid_12">
+<p>
+Download and print out these questions. <%= link_to "Questions of the Day", :controller => 'pdfs', :action => 'show', :pdf => @questions.pdf %>
+</p>
+
+And when you're done, fill in your answers and get them graded. 
+<%= render "partials/section_grading_form" %>
+</div>
+
+

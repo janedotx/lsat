@@ -1,0 +1,48 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "general"%>
+  <%= stylesheet_link_tag "signin"%>
+<% end %>
+
+<div class="grid_3 spacer">
+</div>
+<div class="grid_6 thin_border">
+  <form id="form" action="<%= new_user_path %>" method="post">
+    <table>
+      <tr>
+        <td class="param">Screen name:</td>
+        <td>
+          <input class="field" type="text" name="screen_name" size="20" value="<%= params[:screen_name] %>">
+        </td>
+      </tr>
+      <tr>
+        <td class="param">Email address:</td>
+        <td><input class="field" type="text" name="email_address" size="20" value="<%= params[:email_address] %>"></td>
+      </tr>
+      <tr>
+        <td class="param">Password:</td>
+        <td><input class="field" type="password" name="password" size="20"></td>
+      </tr>
+      <tr>
+        <td class="param">Password confirmation:</td>
+        <td>
+          <input class="field" type="password" name="password_confirmation" size="20">
+        </td>
+      </tr>
+      <% if params[:errors] %>
+        <tr class="errors">
+          <td colspan="2">
+          <ul>
+            <% params[:errors].each do |error| %>
+                <li > <%= error %> </li>
+            <% end %>
+          </ul>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <br/>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<div class="grid_3 spacer">
+</div>
