@@ -23,13 +23,13 @@ class LsatTestController < ApplicationController
     @test = LsatTest.find(DIAGNOSTIC_TEST_ID)
     @user.taken_diagnostic = true
     @user.save
-    @score = LsatTest.grade(user, DIAGNOSTIC_TEST_ID, params)
+    @scores = LsatTest.grade(user, DIAGNOSTIC_TEST_ID, params)
     @percentages = {}
     @scores.each_pair do |key, val|
       num_right = val.inject(0) { |ans, sum| ans + sum }
       @percentages[key] = num_right.to_f/val.size
     end
-    LessonsCollection.set_for_user(@user, @score)
+    LessonsCollection.set_for_user(@user, @scores)
   end
 
   def take_timed_test
