@@ -8,7 +8,7 @@ class LessonsCollectionController < ApplicationController
     @questions = LsatTest.find(@lesson.lsat_test_id)
   end
 
-  def grade_lesson
+  def grade_questions_of_the_day
     @scores = LsatTest.grade(@user, params["test_id"], params)
     @percentages = {}
     @scores.each_pair do |key, val|

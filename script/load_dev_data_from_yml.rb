@@ -20,9 +20,9 @@ def populate(file, klass)
 end
 
 #populate("/Users/jian/lsat/test/fixtures/questions.yml", Question)
-populate("/Users/jian/lsat/test/fixtures/lsat_sections.yml", LsatSection)
-populate("/Users/jian/lsat/test/fixtures/questions.yml", LsatSection)
-populate("/Users/jian/lsat/test/fixtures/lsat_test.yml", LsatSection)
+#populate("/Users/jian/lsat/test/fixtures/lsat_sections.yml", LsatSection)
+#populate("/Users/jian/lsat/test/fixtures/questions.yml", LsatSection)
+populate("/Users/jian/lsat/test/fixtures/vocabulary_words.yml", VocabularyWord)
 
 # file = "/Users/jian/lsat/test/fixtures/lsat_sections.yml"
 

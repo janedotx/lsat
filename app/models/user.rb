@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :lessons_collection
+  has_many :user_vocabulary_words
   validates :screen_name, :length => { :mininum => 4, :maximum => 25 }
   # attr_accessible :title, :body
   attr_accessible :screen_name, :email, :password
@@ -18,5 +19,13 @@ class User < ActiveRecord::Base
   def current_lesson
     return nil if lessons_collection.nil?
     Lesson.find(lessons_collection.current_lesson_id)
+  end
+
+  def seen_vocabulary_words_ids
+    @seen_vocabulary_words_ids ||= user_vocabulary_words.map { |word| word.id }.sort
+  end
+
+  def unknown_and_seen_vocabulary_words_ids
+    @unknown_and_seen_vocabulary_words_ids ||= user_vocabulary_words.select { |word| !word.knows_definition }.map { |x| x.id }
   end
 end

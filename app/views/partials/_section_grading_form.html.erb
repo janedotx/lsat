@@ -1,4 +1,4 @@
-<form action="<%= grade_lesson_path %>" method="post">
+<form action="<%= grade_questions_of_the_day_path %>" method="post">
   <% @questions.lsat_sections_by_ordinal_array_objects.each_with_index do |section, s_index| %>
     <h4> SECTION <%= s_index + 1 %> </h4>
       <% section.questions_by_ordinal_array_objects.each_with_index do |question, q_index| %>

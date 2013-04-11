@@ -10,4 +10,19 @@ module SimpleHelpers
     end
     arr
   end
+
+  def generate_array(i, j)
+    arr = []
+    (j - i + 1).times do |x|
+      arr << i + x
+    end
+    arr
+  end
+
+  def randomly_insert(arr, item)
+    return [item] if arr.blank?
+    Random.new_seed
+    index = Random.rand(arr.size)
+    (arr[0...index] << item) + arr[index...arr.size]
+  end
 end

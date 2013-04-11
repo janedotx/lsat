@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319063615) do
+ActiveRecord::Schema.define(:version => 20130405003705) do
 
   create_table "courses", :force => true do |t|
     t.binary   "lesson_ids_by_ordinal"
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(:version => 20130319063615) do
     t.integer  "video_id"
   end
 
+  create_table "user_vocabulary_words", :force => true do |t|
+    t.boolean  "knows_definition"
+    t.boolean  "knows_valence"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "user_id"
+    t.integer  "vocabulary_word_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string  "screen_name"
     t.binary  "diagnostic_scores"
@@ -107,6 +116,18 @@ ActiveRecord::Schema.define(:version => 20130319063615) do
     t.string   "file_name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "vocabulary_words", :force => true do |t|
+    t.string   "definition"
+    t.string   "part_of_speech"
+    t.boolean  "valence"
+    t.string   "example_sentence"
+    t.string   "example_sentence_1"
+    t.integer  "difficulty_level"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "word"
   end
 
 end
